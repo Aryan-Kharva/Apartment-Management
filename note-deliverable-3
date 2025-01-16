@@ -1,0 +1,45 @@
+The deliverable 3 - Requirements Specifications PDF can be found at ITIS3300-GroupProject/documents/Deliverable-3/ITIS 3300 - Deliverable 3 - The Potatoes.pdf
+
+The deliverable inspection-code-potato-properties can be found on the top level
+
+The deliverable meeting minutes have been updated and can be found at ITIS3300-GroupProject/documents/project-planning/MEETING-MINUTES
+|── NOTE: Please scroll down to the bottom for the latest updates
+
+Directory Structure:
+ITIS330-GroupProject/  
+|──documents/
+|      |── Deliverable-1/
+|      |       |── ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pdf
+|      |       |── ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pptx
+|      |── Deliverable-2/
+|      |       |── ITIS 3300 - Deliverable 2 - Requirements Specifications - The Potatoes(1).pdf
+|      |── Deliverable-3/
+|      |       |── ITIS 3300 - Deliverable 3 - The Potatoes.pdf
+|      |── project-planning/
+|      |       |── DIRECTORY-STRUCTURE
+|      |       |── GROUP-INFO
+|      |       |── MEETING-MINUTES
+|──src/
+|      |── __init__.py
+|      |── templates/
+|      |       |── _layout.html
+|      |       |── index.html
+|      |       |── signup.html
+|      |       |── dashboard.html
+|      |       |── error.html
+|      |       |── maintenance.html
+|      |── static/
+|      |       |── css/
+|      |              |── style.css
+|      |       |──images/
+|      |              |── potato-logo.png
+|      |       |── js/
+|      |       |      |── index.js
+|      |── .gitignore
+|      |── db.sql
+|── README.md
+|── inspection-code-potato-properties
+|── note-deliverable-1.txt
+|── note-deliverable-2.txt
+|── note-deliverable-3.txt
+|── requirements.txt

@@ -1,0 +1,28 @@
+<%- include('../partials/header-ver.ejs', { title: 'PotatoProperties | Maintenence' }) %>
+
+<div class="login-container">
+    
+    <% if (user.tenant.userType === 'tenant') {%>
+        <form action="/requests" method="POST">
+            <div class="input-group">
+                <label for="unit">Unit</label>
+                <input type="text" id="unit" name="unit" value="<%= user.unitNumber.unitNumber %>" readonly>
+            </div>
+            <div class="input-group">
+                <label for="tenant">Tenant</label>
+                <input type="text" id="name" name="name" value="<%= user.tenant.firstName + ' ' + user.tenant.lastName %>" readonly>
+            </div>
+            <div class="input-group">
+                <label for="additionalNotes">Additional Notes</label>
+                <textarea id="additionalNotes" name="additionalNotes" class="p-1 w-full resize-vertical max-h-[400px]"></textarea>
+            </div>
+            <div class="button-group">
+                <button type="submit">Submit Request</button>
+            </div>
+        </form>
+    <%} else {%>
+        <p>You do not have access to a property</p>
+    <%}%> 
+</div>
+
+<%- include('../partials/footer.ejs')%>

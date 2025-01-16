@@ -1,0 +1,100 @@
+The deliverable 4 - PDF can be found at ITIS3300-GroupProject/documents/Deliverable-5/ITIS 3300 - Deliverable 5 - The Potatoes.pdf
+|── For simplicity, a video of the current application run through has been provided at ITIS3300-GroupProject/documents/Deliverable-5/Final Video
+|── For simplicity, a PDF with project screenshot has been provided at ITIS3300-GroupProject/documents/Deliverable-5/Final Project Screenshots.pdf
+
+The deliverable meeting minutes have been updated and can be found at ITIS3300-GroupProject/documents/project-planning/MEETING-MINUTES
+|── NOTE: Please scroll down to the bottom for the latest updates
+
+
+Directory Structure:
+ITIS330-GroupProject/  
+|──documents/
+|      |── Deliverable-1/
+|      |       |── ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pdf
+|      |       |── ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pptx
+|      |── Deliverable-2/
+|      |       |── ITIS 3300 - Deliverable 2 - Requirements Specifications - The Potatoes(1).pdf
+|      |── Deliverable-3/
+|      |       |── ITIS 3300 - Deliverable 3 - The Potatoes.pdf
+|      |── Deliverable-4/
+|      |       |── ITIS 3300 - Deliverable 4 - The Potatoes.pdf
+|      |       |── VIEDO OF RUN THROUGH*
+|      |── Deliverable-5/
+|      |       |── Final Project Screenshots.pdf
+|      |       |── Final Video
+|      |       |── ITIS 3300 - Deliverable 5 - The Potatoes.pdf
+|      |── project-planning/
+|      |       |── DIRECTORY-STRUCTURE
+|      |       |── GROUP-INFO
+|      |       |── MEETING-MINUTES
+|──src/
+|      |── __tests__/
+|      |       |── controllers/
+|      |       |       |── propertyController.test.js
+|      |       |       |── requestController.test.js
+|      |       |       |── userController.test.js
+|      |       |── middleware/
+|      |       |       |── auth.test.js
+|      |       |       |── validator.test.js
+|      |── controllers/
+|      |       |── propertyController.js
+|      |       |── requestController.js
+|      |       |── userController.js
+|      |── middlewares/
+|      |       |── auth.js
+|      |       |── validator.js
+|      |── models/
+|      |       |── lease.js
+|      |       |── property.js
+|      |       |── request.js
+|      |       |── tenant.js
+|      |       |── user.js
+|      |── public/
+|      |       |── css/
+|      |              |── style.css
+|      |       |──images/
+|      |              |── complex.jpeg
+|      |              |── interior.jpg
+|      |              |── oneBedroom.jpg
+|      |              |── potato-logo.png
+|      |              |── threeBedroom.jpg
+|      |              |── twoBedroom.jpg
+|      |── routes/
+|      |       |── propertyRoutes.js
+|      |       |── requestRoutes.js
+|      |       |── userRoutes.js
+|      |── views/
+|      |       |── partials/
+|      |              |── footer.ejs
+|      |              |── header-hor.ejs
+|      |              |── header-ver.ejs
+|      |       |── property/
+|      |              |── apply.ejs
+|      |              |── edit.ejs
+|      |              |── index.ejs
+|      |              |── new.ejs
+|      |              |── show.ejs
+|      |       |── request/
+|      |              |── index.ejs
+|      |       |── user/
+|      |              |── application.ejs
+|      |              |── contact.ejs
+|      |              |── dashboard.ejs
+|      |              |── login.ejs
+|      |              |── managementDashboard.ejs
+|      |              |── new.ejs 
+|      |       |── error.ejs
+|      |       |── index.ejs
+|      |── app.js
+|      |── package-lock.json
+|      |── package.json
+|── .gitignore
+|── README.md
+|── inspection-code-potato-properties-deliverable-3
+|── inspection-code-potato-properties-deliverable-4
+|── note-deliverable-1.txt
+|── note-deliverable-2.txt
+|── note-deliverable-3.txt
+|── note-deliverable-4.txt
+|── note-deliverable-5.txt
+|── requirements.txt

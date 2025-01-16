@@ -1,0 +1,164 @@
+<%- include('../partials/header-ver.ejs', { title: 'PotatoProperties | Dashboard' }) %>
+
+<div class="dashboard-content">
+    <div id="dash-head" class="mt-12">
+        <h1 class="text-4xl">Dashboard</h1>
+        <div class="profile-icon">
+            <i class="fa fa-user"></i>
+        </div>
+    </div>
+
+    <h2 class="text-4xl text-[#443D34] mt-4">Welcome back, <%= user.firstName %>!</h2>
+
+    <% if (user.userType === 'management') { %>
+        <!-- Current Applications Section -->
+        <section class="dashboard-section mt-8">
+            <h2 class="text-2xl text-[#443D34] mb-4">Current Applications</h2>
+            <% if (tenants && tenants.length > 0) { %>
+                <div class="grid gap-4">
+                    <% tenants.forEach(tenant => { %>
+                        <% if (tenant.applicationStatus === 'Pending') { %>
+                            <div class="application-card p-4 border rounded">
+                                <h3>Application for <br> Unit <%= tenant.unitNumber.unitNumber %></h3>
+                                <p>Applicant: <%= tenant.tenant.firstName %> <%= tenant.tenant.lastName %></p>
+                                <p>Employment: <%= tenant.employmentStatus %></p>
+                                <p>Annual Income: $<%= tenant.annualIncome.toLocaleString() %></p>
+                                <p>Application Date: <%= tenant.applicationDate.toLocaleDateString() %></p>
+                                <div class="mt-2">
+                                    <a href="/users/application/<%= tenant.tenant._id %>">Review Application</a>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No pending applications</p>
+            <% } %>
+        </section>
+
+        <!-- Maintenance Requests Section -->
+        <section class="dashboard-section mt-8">
+            <h2 class="text-2xl text-[#443D34] mb-4">Maintenance Requests</h2>
+            <% if (requests && requests.length > 0) { %>
+                <div class="grid gap-4">
+                    <% requests.forEach(request => { %>
+                        <% if (request.status !== 'completed' && request.status !== 'cancelled') { %>
+                            <div class="request-card p-4 border rounded">
+                                <h3>Unit <%= request.property.unitNumber %></h3>
+                                <p class="priority-tag <%= request.priority %>">Priority: <%= request.priority.toUpperCase() %></p>
+                                <p>Description <%= request.description %></p>
+                                <p>Submitted: <%= request.dateSubmitted.toLocaleDateString() %></p>
+                                <form class="mt-2" method="post" action="/requests/<%= request._id %>">
+                                    <button type="submit" class="px-4 py-2 bg-[#6f6360] text-white rounded-lg">Mark Complete</button>
+                                </form>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No active maintenance requests</p>
+            <% } %>
+        </section>
+
+        <!-- Property Status Sections -->
+        <!-- Vacant Units -->
+        <section class="dashboard-section mt-8">
+            <h2 class="text-2xl text-[#443D34] mb-4">Vacant Units</h2>
+            <% if (properties && properties.length > 0) { %>
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <% properties.forEach(property => { %>
+                        <% if (property.status === 'vacant') { %>
+                            <div class="property-card p-4 border rounded">
+                                <h3>Unit <%= property.unitNumber %></h3>
+                                <p><%= property.bedroom %> Bedroom, <%= property.bath %> Bath</p>
+                                <p><%= property.squareFootage %> sq ft</p>
+                                <p>Rent: $<%= property.monthlyRent.toLocaleString() %>/month</p>
+                                <p>Deposit: $<%= property.deposit.toLocaleString() %></p>
+                                <div class="mt-2">
+                                    <a href="/properties/<%= property._id %>" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No vacant units</p>
+            <% } %>
+        </section>
+
+        <!-- Reserved Units -->
+        <section class="dashboard-section mt-8">
+            <h2 class="text-2xl text-[#443D34] mb-4">Reserved Units</h2>
+            <% if (properties && properties.length > 0) { %>
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <% properties.forEach(property => { %>
+                        <% if (property.status === 'reserved') { %>
+                            <div class="property-card p-4 border rounded">
+                                <h3>Unit <%= property.unitNumber %></h3>
+                                <p><%= property.bedroom %> Bedroom, <%= property.bath %> Bath</p>
+                                <p><%= property.squareFootage %> sq ft</p>
+                                <p>Rent: $<%= property.monthlyRent.toLocaleString() %>/month</p>
+                                <div class="mt-2">
+                                    <a href="/properties/<%= property._id %>" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"><p>No reserved units</p></div>
+            <% } %>
+        </section>
+
+        <!-- Units Requiring Maintenance -->
+        <section class="dashboard-section mt-8">
+            <h2 class="text-2xl text-[#443D34] mb-4">Units Requiring Maintenance</h2>
+            <% if (properties && properties.length > 0) { %>
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <% properties.forEach(property => { %>
+                        <% if (property.status === 'maintenance') { %>
+                            <div class="property-card p-4 border rounded">
+                                <h3>Unit <%= property.unitNumber %></h3>
+                                <p><%= property.bedroom %> Bedroom, <%= property.bath %> Bath</p>
+                                <p><%= property.squareFootage %> sq ft</p>
+                                <div class="mt-2">
+                                    <a href="/properties/<%= property._id %>" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No units under maintenance</p>
+            <% } %>
+        </section>
+
+        <!-- Occupied Units -->
+        <section class="dashboard-section mt-8">
+            <h2 class="text-2xl text-[#443D34] mb-4">Occupied Units</h2>
+            <% if (properties && properties.length > 0) { %>
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <% properties.forEach(property => { %>
+                        <% if (property.status === 'occupied') { %>
+                            <div class="property-card p-4 border rounded">
+                                <h3>Unit <%= property.unitNumber %></h3>
+                                <p><%= property.bedroom %> Bedroom, <%= property.bath %> Bath</p>
+                                <p><%= property.squareFootage %> sq ft</p>
+                                <p>Rent: $<%= property.monthlyRent.toLocaleString() %>/month</p>
+                                <div class="mt-2">
+                                    <a href="/properties/<%= property._id %>" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No occupied units</p>
+            <% } %>
+        </section>
+    <% } else { %>
+        <p>Access denied. Management privileges required.</p>
+    <% } %>
+</div>
+
+<%- include('../partials/footer.ejs')%>

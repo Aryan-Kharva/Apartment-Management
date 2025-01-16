@@ -1,0 +1,61 @@
+<%- include('./partials/header-hor.ejs', { title: 'PotatoProperties | Welcome' }) %>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<section class="home-container">
+    
+    <h2>Welcome to Potato Properties</h2>
+    <img src="/images/complex.jpeg" alt="Complex">
+    
+    <h2>Why Choose Us</h2>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <i class="fas fa-home"></i>
+            <h3>Modern Living Spaces</h3>
+            <p>Thoughtfully designed floor plans with premium finishes and spacious layouts.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-dumbbell"></i>
+            <h3>State-of-the-Art Amenities</h3>
+            <p>24/7 fitness center, resort-style pool, and resident lounge.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Prime Location</h3>
+            <p>Minutes away from shopping, dining, and entertainment venues.</p>
+        </div>
+    </div>
+
+    <div>
+        <h2>Floor Plans</h2>
+        <img src="/images/interior.jpg" alt="Apartment Interior">
+        
+        <p>We offer spacious one, two, and three bedroom apartments.</p>
+        <a href="/properties">View Floor Plans</a>
+    </div>
+</section>
+
+<section class="contact">
+    <h2>Get in Touch</h2>
+    <p>We'd love to hear from you and help you find your perfect home.</p>
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <h3>Call Us</h3>
+            <p>(123) 456-7890</p>
+        </div>
+        
+        <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <h3>Office Hours</h3>
+            <p>Mon-Fri: 9am-6pm<br>Sat: 10am-4pm</p>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Us</h3>
+            <p>info@potatoproperties.com</p>
+        </div>
+    </div>
+</section>
+
+<%- include('./partials/footer.ejs')%>

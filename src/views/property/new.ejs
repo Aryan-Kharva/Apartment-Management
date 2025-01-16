@@ -1,0 +1,40 @@
+<%- include('../partials/header-hor.ejs', { title: 'PotatoProperties | Login' }) %>
+
+    
+    
+    <div class="signup-container">
+        <h2 class="input-group-header">Add New Property</h2>
+        
+        <form action='/properties' method='POST' class="new-form">
+            <div class="input-group">
+                <label for="unitNumber">Unit Number*</label>
+                <input type="text" id="unitNumber" name="unitNumber" required>
+            </div>
+    
+            <div class="input-group">
+                <label for="bedroom">Number of Bedrooms*</label>
+                <select id="bedroom" name="bedroom" required>
+                    <option value="">Select Bedroom Type</option>
+                    <option value="One">One Bedroom</option>
+                    <option value="Two">Two Bedroom</option>
+                    <option value="Three">Three Bedroom</option>
+                </select>
+            </div>
+    
+            <div class="input-group">
+                <label for="monthlyRent">Monthly Rent*</label>
+                <input type="number" id="monthlyRent" name="monthlyRent" min="1" required>
+            </div>
+    
+            <div class="input-group">
+                <label for="deposit">Security Deposit*</label>
+                <input type="number" id="deposit" name="deposit" required>
+            </div>
+        
+            <div class="button-group">
+                <button type="submit">Add Property</button>
+            </div>
+        </form>
+    </div>
+
+<%- include('../partials/footer.ejs')%>

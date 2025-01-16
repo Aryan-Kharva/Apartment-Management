@@ -1,0 +1,134 @@
+<%- include('../partials/header-hor.ejs', { title: 'PotatoProperties | View Properties' }) %>
+
+<main class="property-container">
+    <div>
+        <h2>Available Floor Plans</h2>
+        <p>Find your perfect space among our vacant units</p>
+    </div>
+
+    <section class="floor-plans-grid">
+        <div class="floor-plan-card">
+            <div class="floor-plan-details">
+            <h3>One Bedroom</h3>
+            <img src="/images/oneBedroom.jpg" alt="One Bedroom Floor plan" class="floor-plan-image">
+            
+            <div class="floor-plan-info">
+                <div><i class="fas fa-bed"></i> One Bedroom</div>
+                <div><i class="fas fa-bath"></i> One Bathroom</div>
+                <div><i class="fas fa-ruler-combined"></i> 800 sq ft</div>
+            </div>
+        </div>
+        </div>
+            <% if (properties && properties.length > 0) { %>
+                <% properties.forEach(property => { %>
+                    <% if (property.status == 'vacant' && property.bedroom == 'One') { %>
+                        <div class="floor-plan-card">
+                        <div class="floor-plan-details">
+                            <h4 class="floor-plan-type">Unit <%= property.unitNumber %></h4>
+                            <span class="availability-tag">Available Now</span>
+                            
+                            <div class="price">$<%= property.monthlyRent %>/month</div>
+                            <% if (user && user.userType === 'management') {%>
+                            <a href="/properties/<%= property._id %>/edit">Edit Listing</a>
+                            <%} else {%>
+                            <a href="/properties/<%= property._id %>">View Details</a>
+                            <%}%>
+                        </div>
+                        </div>
+                    
+                    <% } %>
+                <% }); %>
+            <% } else { %>
+                <div>
+                    <h2>No Available Units</h2>
+                    <p>Sorry, there are currently no vacant one bedroom units available. Please check back soon or contact us to join our waiting list.</p>
+                </div>
+            <% } %>
+    </section>
+
+    <section class="floor-plans-grid">
+        <div class="floor-plan-card">
+            <div class="floor-plan-details">
+            <h3>Two Bedroom</h3>
+            <img src="/images/twoBedroom.jpg" alt="Two Bedroom Floor plan" class="floor-plan-image">
+            
+            <div class="floor-plan-info">
+                <div><i class="fas fa-bed"></i> Two Bedroom</div>
+                <div><i class="fas fa-bath"></i> Two Bathroom</div>
+                <div><i class="fas fa-ruler-combined"></i> 1100 sq ft</div>
+            </div>
+        </div>
+        </div>
+            <% if (properties && properties.length > 0) { %>
+                <% properties.forEach(property => { %>
+                    <% if (property.status == 'vacant'  && property.bedroom == 'Two') { %>
+                        <div class="floor-plan-card">
+                        <div class="floor-plan-details">
+                            <h4 class="floor-plan-type">Unit <%= property.unitNumber %></h4>
+                            <span class="availability-tag">Available Now</span>
+                            
+                            <div class="price">$<%= property.monthlyRent %>/month</div>
+                            <% if (user && user.userType === 'management') {%>
+                                <a href="/properties/<%= property._id %>/edit">Edit Listing</a>
+                                <%} else {%>
+                                <a href="/properties/<%= property._id %>">View Details</a>
+                                <%}%>
+                        </div>
+                        </div>
+                    
+                <% } %>
+            <% }); %>
+        <% } else { %>
+            <div>
+                <h2>No Available Units</h2>
+                <p>Sorry, there are currently no vacant two bedroom units available. Please check back soon or contact us to join our waiting list.</p>
+            </div>
+        <% } %>
+    </section>
+
+    <section class="floor-plans-grid">
+        <div class="floor-plan-card">
+            <div class="floor-plan-details">
+            <h3>Three Bedroom</h3>
+            <img src="/images/threeBedroom.jpg" alt="Three Bedroom Floor plan" class="floor-plan-image">
+            
+            <div class="floor-plan-info">
+                <div><i class="fas fa-bed"></i> Three Bedroom</div>
+                <div><i class="fas fa-bath"></i> Two Bathroom</div>
+                <div><i class="fas fa-ruler-combined"></i> 1400 sq ft</div>
+            </div>
+        </div>
+        </div>
+            <% if (properties && properties.length > 0) { %>
+                <% properties.forEach(property => { %>
+                    <% if (property.status == 'vacant'  && property.bedroom == 'Three') { %>
+                        <div class="floor-plan-card">
+                        <div class="floor-plan-details">
+                            <h4 class="floor-plan-type">Unit <%= property.unitNumber %></h4>
+                            <span class="availability-tag">Available Now</span>
+                            
+                            <div class="price">$<%= property.monthlyRent %>/month</div>
+                            <% if (user && user.userType === 'management') {%>
+                            <a href="/properties/<%= property._id %>/edit">Edit Listing</a>
+                            <%} else {%>
+                            <a href="/properties/<%= property._id %>">View Details</a>
+                            <%}%>
+                        </div>
+                        </div>
+                    <% } %>
+                <% }); %>
+            <% } else { %>
+                <div class="floor-plan-card">
+                    <div class="floor-plan-details">
+                        <h4 class="floor-plan-type">No Available Units</h4>
+                    <p>Sorry, there are currently no vacant three bedroom units available. Please check back soon or contact us to join our waiting list.</p>
+                    </div>
+                    </div>
+            <% } %>
+            <div class="h-[75px]"></div>
+    </section>
+
+</main>
+
+
+<%- include('../partials/footer.ejs')%>

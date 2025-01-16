@@ -1,0 +1,47 @@
+<%- include('../partials/header-hor.ejs', { title: 'PotatoProperties | Edit Property' }) %>
+<main class="flex justify-center relative">
+    <div class="apply-container">
+        <h2 class="input-group-header">Edit Property</h2>
+        <form action='/properties/<%= property._id %>?_method=PUT' method='POST' class="new-form">
+            <!-- Hidden field for property ID -->
+            <input type="hidden" name="propertyId" value="<%= property._id %>">
+            
+            <!-- Auto-filled Property Information -->
+            <div class="input-group">
+                <label for="unitNumber">Unit Number</label>
+                <input type="text" id="unitNumber" name="unitNumber" value="<%= property.unitNumber %>" readonly>
+            </div>
+            
+            <div class="input-group">
+                <label for="bedroom">Number of Bedrooms</label>
+                <input type="text" id="bedroom" name="bedroom" value="<%= property.bedroom %>" readonly>
+            </div>
+            
+            <div class="input-group">
+                <label for="monthlyRent">Monthly Rent</label>
+                <input type="number" id="monthlyRent" name="monthlyRent" value="<%= property.monthlyRent %>">
+            </div>
+
+            <div class="input-group">
+                <label for="Deposit">Deposit</label>
+                <input type="number" id="Deposit" name="Deposit" value="<%= property.deposit %>">
+            </div>
+
+            <div class="input-group">
+                <label for="status">Property Status*</label>
+                <select id="status" name="status" required>
+                    <option value="<%= property.status %>"><%= property.status %></option>
+                    <option value="vacant">Vacant</option>
+                    <option value="occupied">Occupies</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="reserved">Resserved</option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit">Submit Edit</button>
+            </div>
+        </form>
+    </div>
+</main>
+<%- include('../partials/footer.ejs')%>

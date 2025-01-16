@@ -1,0 +1,88 @@
+<%- include('../partials/header-hor.ejs', { title: 'PotatoProperties | Edit Tenant' }) %>
+
+<div class="apply-container">
+    <h2 class="input-group-header">Edit Tenant Information</h2>
+    
+    <form action='/users/application/<%= tenant._id %>?_method=PUT' method='POST' class="new-form">
+        <!-- Hidden field for tenant ID -->
+        <input type="hidden" name="tenantId" value="<%= tenant._id %>">
+        
+        <!-- Auto-filled Unit Information -->
+        <div class="input-group">
+            <label for="unitNumber">Unit Number</label>
+            <input type="text" id="unitNumber" name="unitNumber" value="<%= tenant.unitNumber.unitNumber %>" readonly>
+        </div>
+        
+        <!-- Auto-filled Tenant Information -->
+        <div class="input-group">
+            <label for="tenant">Tenant Name</label>
+            <input type="text" id="tenant" name="tenant" value="<%= tenant.tenant.firstName + ' '  + tenant.tenant.lastName %>" readonly>
+        </div>
+
+        <div class="input-group">
+            <label for="moveInDate">Move-in Date*</label>
+            <input type="date" id="moveInDate" name="moveInDate" value="<%= tenant.moveInDate.toISOString().split('T')[0] %>" required>
+        </div>
+
+        <div class="input-group">
+            <label for="employmentStatus">Employment Status*</label>
+            <select id="employmentStatus" name="employmentStatus" readonly>
+                <option value="<%= tenant.employmentStatus %>"><%= tenant.employmentStatus %></option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="annualIncome">Annual Income*</label>
+            <input type="number" id="annualIncome" name="annualIncome" value="<%= tenant.annualIncome %>" readonly>
+        </div>
+
+        <div class="input-group">
+            <label for="additionalNotes">Additional Notes</label>
+            <textarea id="additionalNotes" name="additionalNotes" readonly><%= tenant.additionalNotes %></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="activeLease">Active Lease</label>
+            <select id="activeLease" name="activeLease">
+                <option value="<%= tenant.activeLease %>"><%= tenant.activeLease ? 'Yes' : 'No' %></option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="leaseStart">Lease Start Date</label>
+            <input type="date" id="leaseStart" name="leaseStart" value="<%= tenant.leaseStart ? tenant.leaseStart.toISOString().split('T')[0] : '' %>">
+        </div>
+
+        <div class="input-group">
+            <label for="leaseEnd">Lease End Date</label>
+            <input type="date" id="leaseEnd" name="leaseEnd" value="<%= tenant.leaseEnd ? tenant.leaseEnd.toISOString().split('T')[0] : '' %>">
+        </div>
+
+        <div class="input-group">
+            <label for="applicationStatus">Application Status*</label>
+            <select id="applicationStatus" name="applicationStatus" required>
+                <option value="<%= tenant.applicationStatus %>"><%= tenant.applicationStatus %></option>
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Declined">Declined</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="active">Active Status</label>
+            <select id="active" name="active">
+                <option value="<%= tenant.active %>"><%= tenant.active ? 'Active' : 'Inactive' %></option>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>
+        </div>
+        
+        <div class="button-group">
+            <button type="submit">Update Tenant Information</button>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs')%>

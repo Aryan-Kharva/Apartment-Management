@@ -1,0 +1,82 @@
+<%- include('../partials/header-ver.ejs', { title: 'PotatoProperties | Dashboard' }) %>
+    
+<div class="dashboard-content">
+    <div id="dash-head" style="margin-top: 50px;">
+        <h1 style="font-size: 35px;">Dashboard</h1>
+        <div class="profile-icon">
+            <i class="fa fa-user"></i>
+        </div>
+    </div>
+    <br>
+    <h2 style="color: #443D34; font-size: 40px;">Welcome back, <%= user.firstName %>!</h2>
+    
+    <% if (tenantInfo && tenantInfo.activeLease) { %> 
+        <div class="balance-section">
+            <div>
+                <p class="balance-amount" style="color: #443D34; font-size: 50px; margin-bottom: 0px;">$0.00</p>
+                <p style="color: #443D34; font-size: 25px; margin-bottom: 2px;"><b>No Balance Due</b></p>
+            </div>
+            <button class="balance-button" style="margin-top: 80px; background-color: #948A76; color: #443D34; font-size: 20px;"><b>Make A Payment</b></button>
+        </div>
+    <% } else if (tenantInfo && propertyInfo) { %>
+        <div class="news-section">
+            <h2 style="color: #443D34; font-size: 30px;">My Application</h2>
+            <div class="news-item">
+                <div class="p-3">
+                    <h3>Unit <%= propertyInfo.unitNumber %></h3>
+                    <div class="floor-plan-info">
+                        <div><i class="fas fa-bed"></i> <%= propertyInfo.bedroom %> Bedrooms</div>
+                        <div><i class="fas fa-bath"></i> <%= propertyInfo.bath %> Bathrooms</div>
+                        <div><i class="fas fa-ruler-combined"></i> <%= propertyInfo.squareFootage %> sq ft</div>
+                    </div>
+                    
+                    <div class="application-details">
+                        <p><strong>Employment Status:</strong> <%= tenantInfo.employmentStatus %></p>
+                        <p><strong>Application Date:</strong> <%= new Date(tenantInfo.applicationDate).toLocaleDateString() %></p>
+                        <p><strong>Application Status:</strong> <%= tenantInfo.applicationStatus %></p>
+                        <% if (tenantInfo.moveInDate) { %>
+                            <p><strong>Requested Move-in Date:</strong> <%= new Date(tenantInfo.moveInDate).toLocaleDateString() %></p>
+                        <% } %>
+                        <% if (tenantInfo.additionalNotes && tenantInfo.additionalNotes !== 'None') { %>
+                            <p><strong>Additional Notes:</strong> <%= tenantInfo.additionalNotes %></p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="news-section">
+            <h2 style="color: #443D34; font-size: 30px;">No Active Applications</h2>
+            <div class="news-item p-3">
+                <p>You currently have no active applications. <a href="/properties" class="underline font-bold">Browse</a> our available properties to apply.</p>
+            </div>
+        </div>
+    <% } %>
+
+    <div class="news-section">
+        <h2 style="color: #443D34; font-size: 30px;">News & Updates</h2>
+        <div class="news-item"></div>
+        <div class="news-item"></div>
+        <div class="news-item"></div>
+    </div>
+
+    <% if (tenantInfo && tenantInfo.activeLease && propertyInfo) { %> 
+        <h2 style="color: #443D34; font-size: 30px;">Current Lease</h2>
+        <div class="scrollable-section">
+            <div class="lease-info">
+                <p><strong>Lease Start Date:</strong> <%= new Date(tenantInfo.leaseStart).toLocaleDateString() %></p>
+                <p><strong>Lease End Date:</strong> <%= new Date(tenantInfo.leaseEnd).toLocaleDateString() %></p>
+                <p><strong>Monthly Rent:</strong> $<%= propertyInfo.monthlyRent.toLocaleString() %></p>
+            </div>
+        </div>
+        
+        <h2 style="color: #443D34; font-size: 30px;">Payment History</h2>
+        <div class="scrollable-section">
+            <div class="payment-history">
+                <p>placeholder</p>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer.ejs')%>

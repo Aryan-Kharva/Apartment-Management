@@ -1,0 +1,34 @@
+<%- include('../partials/header-hor.ejs', { title: 'PotatoProperties | View Unit' }) %>
+
+<main>
+    <div class="show-container">
+    <section class="floor-plans-grid">
+        <div class="floor-plan-card">
+            <div class="floor-plan-details">
+                <h3>Unit <%= property.unitNumber%></h3>
+                <img src="<%= property.images%>" alt="One Bedroom Floor plan">
+                <span class="availability-tag">Available Now</span>
+                <div class="floor-plan-info">
+                    <div><i class="fas fa-bed"></i> <%= property.bedroom %> Bedrooms</div>
+                    <div><i class="fas fa-bath"></i> <%= property.bath %> Bathrooms</div>
+                    <div><i class="fas fa-ruler-combined"></i><%= property.squareFootage %> sq ft</div>
+                </div>
+                <div class="price">$<%= property.monthlyRent %>/month</div>
+                <%if(user && userType === 'potential'){%>
+                    <a href="/properties/<%= property._id %>/apply">Apply Now</a>
+                <%} else if (userType === 'management') {%>
+                    <a href="/properties/<%= property._id %>/edit">Edit Property</a>
+                <%} else if (userType === 'tenant' ) {%>
+                    
+                <% } else { %>
+                    <a href='/users/login'>Login to Apply</a>
+                <%}%>
+                
+            </div>
+        </div>
+    </section>
+</div>
+<div class="h-[75px]"></div>
+</main>
+
+<%- include('../partials/footer.ejs')%>

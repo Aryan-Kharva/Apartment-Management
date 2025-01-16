@@ -1,0 +1,48 @@
+The deliverable 1 - Proposal PDF can be found at ITIS3300-GroupProject/documents/Deliverable-1/ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pdf
+
+The deliverable 1 - Proposal PowerPoint can be found at ITIS3300-GroupProject/documents/Deliverable-1/ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pptx
+
+The deliverable meeting minutes can be found at ITIS3300-GroupProject/documents/project-planning/MEETING-MINUTES
+
+The deliverable directory structure can be found at ITIS3300-GroupProject/documents/project-planning/DIRECTORY-STRUCTURE and is listed below
+
+The deliverable README can be found at ITIS3300-GroupProject/README
+
+```
+ITIS3300-GroupProject/  
+|──documents/
+|      |── Deliverable-1/
+|      |       |── ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pdf
+|      |       |── ITIS 3300 - Deliverable 1-Proposal - The Potatoes.pptx
+|      |── Deliverable-2/
+|      |       |── _init_
+|      |── Reports/
+|      |       |── _init_
+|      |── project-planning/
+|      |       |── DIRECTORY-STRUCTURE
+|      |       |── GROUP-INFO
+|      |       |── MEETING-MINUTES
+|──public/
+|      |── css/
+|      |       |── style.css
+|      |──images/
+|      |       |── _init_
+|      |── index.html
+|──src/
+|      |── config/
+|      |       |── config.js
+|      |       |── database.js
+|      |── scripts/
+|      |       |── application.js
+|      |       |── document.js
+|      |       |── lease.js
+|      |       |── maintenance.js
+|      |       |── payment.js
+|      |       |── tenant.js
+|      |       |── unit.js
+|      |       |── userAuthentication.js
+|      |── tests/
+|      |       |── _init_
+|── README.md
+|── note- deliverable1.txt
+```

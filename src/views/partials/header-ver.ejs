@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/index.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title><%= title %></title>
+</head>
+<body class="relative">
+    
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div id="message-container" class="<%= message.category %> flex justify-center fixed top-0 right-0 z-20 p-3 bg-red-200 mt-[1em] mr-[1em] rounded-xl w-1/4 font-bold">
+                <h1 class="flex-1 text-center"><%=message%></h1>
+            </div>
+        <%});%>
+    <%}%>
+    <% if(successMessages.length > 0) {%>
+        <% successMessages.forEach(message=>{%>
+            <div id="message-container" class="<%= message.category %> flex justify-center fixed top-0 right-0 z-20 p-3 bg-green-200 mt-[1em] mr-[1em] rounded-xl w-1/4 font-bold">
+                <h1 class="flex-1 text-center"><%=message%></h1>
+            </div>
+        <%});%>
+    <%}%>
+
+
+    <div class="h-full w-full flex">
+        <div class="sidebar">
+            <a href="/"><img src="/images/potato_logo.png" alt="Potato Properties Logo"></a>
+            <a href="/users/dashboard" class="menu-item active hover:text-white">Dashboard</a>
+            <% if (user.userType !== 'management') { %>
+                <a href="/requests" class="menu-item active hover:text-white">New Maintenance Request</a>
+            <%}%>
+            <% if (user.userType === 'management') {%>
+                <a href="/properties/new" class="menu-item active hover:text-white">Add Property</a>
+            <%}%>
+            <br>
+            <br>
+            <br>
+            
+            <a href='/users/logout' class="text-left w-full text-white text-[20px] font-bold p-[10px] mr-[25px] rounded-[4px] bg-[#77654fe0]">Logout</a>
+    </div>
